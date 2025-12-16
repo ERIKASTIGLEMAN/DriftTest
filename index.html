@@ -254,7 +254,7 @@ console.log("PB");
 
   <!--=================== Data Layers ==================================-->
 
-
+<!--
 <script>
   window.drift.on('ready', function(api){
     window.drift.on("conversation:buttonClicked", function(data) {
@@ -265,26 +265,57 @@ console.log("PB");
     })
   });
 </script>
+-->
 
   <!----===================Payload Return for Drift Events ==================================-->
 
  <script>
-window.drift.on("conversation:playbookFired", function(data) {
-  console.log("Playbook fired: " + JSON.stringify(data))
-})
-</script>
-
-<script>
   window.drift.on("startConversation", function(data) {
     console.log("CHAT STARTED" + JSON.stringify(data))
   })
   </script>
 
-<script>
-  window.drift.on("conversation:firstInteraction", function(data) {
-    console.log("FIRST INTERACTION " + JSON.stringify(data))
+   <script>
+  window.drift.on("message:sent", function(data) {
+    console.log("MESSAGE SENT " + JSON.stringify(data))
   })
   </script>
+
+   <script>
+  window.drift.on("message", function(data) {
+    console.log("MESSAGE RECEIVED " + JSON.stringify(data))
+  })
+  </script>
+
+   <script>
+  window.drift.on("emailCapture", function(data) {
+    console.log("EMAIL CAPTURED " + JSON.stringify(data))
+  })
+  </script>
+
+   <script>
+  window.drift.on("phoneCapture", function(data) {
+    console.log("PHONE CAPTURED " + JSON.stringify(data))
+  })
+  </script>
+
+   <script>
+  window.drift.on("scheduling:meetingBooked", function(data) {
+    console.log("MEETING BOOKED " + JSON.stringify(data))
+  })
+  </script>
+
+   <script>
+  window.drift.on("conversation:playbookFired", function(data) {
+    console.log("PLAYBOOK FIRED " + JSON.stringify(data))
+  })
+  </script>
+ 
+ <script>
+window.drift.on("conversation:playbookClicked", function(data) {
+  console.log("Playbook CLICKED: " + JSON.stringify(data))
+})
+</script>
 
   <script>
 window.drift.on("conversation:buttonClicked", function(data) {
@@ -293,6 +324,18 @@ window.drift.on("conversation:buttonClicked", function(data) {
 });
   </script> 
 
+    <script>
+window.drift.on("conversation:playbookDismissed", function(data) {
+  console.log("user dismissed a playbook with id: " + data.playbookId);
+  console.log("playbookId " + data.playbookId);
+});
+  </script> 
+
+  <script>
+  window.drift.on("conversation:firstInteraction", function(data) {
+    console.log("FIRST INTERACTION " + JSON.stringify(data))
+  })
+  </script>
   
 
 
