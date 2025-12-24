@@ -338,6 +338,19 @@ window.drift.on("conversation:playbookDismissed", function(data) {
   </script>
   
 
+  <!--=================== Marketo Convo ==================================-->
+<!--Capture convo ID to save as attribute-->
+<script>
+  window.drift.on("conversation:firstInteraction", function(data) {
+    console.log('attribute'+  JSON.stringify(data))
+    drift.api.setUserAttributes({
+      recent_conversationId_mkto: data.conversationId
+    })
+ });
+
+ </script>
+
+
 
   <!--=================== Dynamically Tracking Change in Online Status ==================================-->
 
